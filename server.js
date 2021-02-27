@@ -20,6 +20,7 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static('public'));
 // ================================================================================
 // ROUTER
 // The below points our server to a series of "route" files.
@@ -28,6 +29,9 @@ app.use(express.json());
 
 require("./routes/apiroutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
+// require("./public/assets/js/index");
+// require("./public/assets/css/styles.css");
+
 
 // =============================================================================
 // LISTENER

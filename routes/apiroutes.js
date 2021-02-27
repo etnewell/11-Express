@@ -21,7 +21,7 @@ module.exports = (app) => {
     app.delete("/api/notes/:id", (req, res) =>{
         console.log("the api delete request was called 17")
         var reqId = req.params.id;
-        var noteAry = [...notes.db];
+        var noteAry = [...notes];
         console.log(reqId);
         console.log(noteAry);
         for (let [i, note] of notes.entries()) {
