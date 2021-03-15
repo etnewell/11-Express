@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static('public'));
+app.use(express.static('routes'));
 // ================================================================================
 // ROUTER
 // The below points our server to a series of "route" files.
