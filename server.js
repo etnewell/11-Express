@@ -4,7 +4,7 @@
 // ==============================================================================
 
 var express = require("express");
-
+var fs = require("fs");
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
@@ -29,6 +29,7 @@ app.use(express.static('public'));
 
 require("./routes/apiroutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
+app.use(express.static('./database.js'));
 // require("./public/assets/js/index");
 // require("./public/assets/css/styles.css");
 

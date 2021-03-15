@@ -17,6 +17,7 @@ const getNotes = () => {
 
 // A function for saving a note to the db
 const saveNote = (note) => {
+  console.log("The saveNote function has been called 19-26")
   return $.ajax({
     url: "/api/notes",
     data: note,
@@ -26,10 +27,11 @@ const saveNote = (note) => {
 
 // A function for deleting a note from the db
 const deleteNote = (id) => {
+  console.log(id + "deleteNote 28-33 indexjs called");
   return $.ajax({
     url: "api/notes/" + id,
     method: "DELETE",
-  });
+  }).then(console.log("call was made"));
 };
 
 // If there is an activeNote, display it, otherwise render empty inputs
@@ -51,12 +53,15 @@ const renderActiveNote = () => {
 
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
+  console.log("handleNoteSave was called")
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
   };
+  console.log(newNote.title + " " + newNote.text + " this is the newNote that was made");
 
   saveNote(newNote).then(() => {
+    console.log("saveNote function called 60-64")
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -64,6 +69,7 @@ const handleNoteSave = function () {
 
 // Delete the clicked note
 const handleNoteDelete = function (event) {
+  console.log("handleNoteDelete 70-85 was called")
   // prevents the click listener for the list from being called when the button inside of it is clicked
   event.stopPropagation();
 
